@@ -33,9 +33,11 @@ const translations = {
     'contact.title': 'Spremni smo pomoći vam odmah',
     'contact.text': 'Ako trebate pomoć s kupovinom, organizacijom ili praćenjem potreba za vrijeme boravka u Dalmaciji, javite nam se.',
     'contact.button': 'Pošaljite poruku',
+    'contact.whatsapp': 'WhatsApp: +385 91 562 2332',
     'footer.name': 'Galantari',
     'footer.description': 'Obrt za kupovinu i podršku skiperima u Dalmaciji.',
-    'footer.contactTitle': 'Kontakt'
+    'footer.contactTitle': 'Kontakt',
+    'footer.whatsapp': 'WhatsApp: +385 91 562 2332'
   },
   en: {
     brand: 'Galantari',
@@ -71,9 +73,11 @@ const translations = {
     'contact.title': 'We are ready to help you right away',
     'contact.text': 'If you need help with shopping, organization or ongoing support during your stay in Dalmatia, please get in touch.',
     'contact.button': 'Send a message',
+    'contact.whatsapp': 'WhatsApp: +385 91 562 2332',
     'footer.name': 'Galantari',
     'footer.description': 'A business for shopping and support for skippers in Dalmatia.',
-    'footer.contactTitle': 'Contact'
+    'footer.contactTitle': 'Contact',
+    'footer.whatsapp': 'WhatsApp: +385 91 562 2332'
   },
   de: {
     brand: 'Galantari',
@@ -109,9 +113,11 @@ const translations = {
     'contact.title': 'Wir sind bereit, Ihnen sofort zu helfen',
     'contact.text': 'Wenn Sie Hilfe bei Einkäufen, Organisation oder laufender Unterstützung während Ihres Aufenthalts in Dalmatien benötigen, nehmen Sie bitte Kontakt auf.',
     'contact.button': 'Eine Nachricht senden',
+    'contact.whatsapp': 'WhatsApp: +385 91 562 2332',
     'footer.name': 'Galantari',
     'footer.description': 'Ein Unternehmen für Einkäufe und Unterstützung von Skippern in Dalmatien.',
-    'footer.contactTitle': 'Kontakt'
+    'footer.contactTitle': 'Kontakt',
+    'footer.whatsapp': 'WhatsApp: +385 91 562 2332'
   }
 };
 
