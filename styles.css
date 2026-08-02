@@ -336,6 +336,8 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .video-toggle-btn svg {

@@ -49,14 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    toggleButton.addEventListener('click', (event) => {
+    const stopPropagation = (event) => {
       event.stopPropagation();
+    };
+
+    toggleButton.addEventListener('click', (event) => {
+      stopPropagation(event);
       toggleVideo();
     });
+    toggleButton.addEventListener('pointerup', stopPropagation);
+    toggleButton.addEventListener('touchend', stopPropagation);
 
-    videoContainer.addEventListener('click', containerToggle);
-    videoContainer.addEventListener('touchend', containerToggle);
-    videoContainer.addEventListener('pointerup', containerToggle);
+    ['click', 'pointerup', 'touchend'].forEach((eventName) => {
+      videoContainer.addEventListener(eventName, containerToggle);
+    });
   }
 
   if (replayButton && video) {
