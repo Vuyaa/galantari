@@ -1,11 +1,11 @@
 :root {
-  --bg: #07131f;
-  --surface: #10253a;
-  --surface-2: #1a3552;
-  --text: #f5f7fb;
-  --muted: #9eb1c5;
-  --accent: #f2b44d;
-  --accent-dark: #c98816;
+  --bg: #07110d;
+  --surface: #13261e;
+  --surface-2: #1c3528;
+  --text: #f5fbf8;
+  --muted: #aec7b7;
+  --accent: #6ee7b7;
+  --accent-2: #ffb84d;
 }
 
 * {
@@ -20,8 +20,8 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, var(--bg), #0f2233 55%, #16354d);
   line-height: 1.6;
+  background: linear-gradient(135deg, var(--bg), #0e2317 55%, #163827);
 }
 
 a {
@@ -43,44 +43,22 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.1rem 0;
+  padding: 1.2rem 0;
 }
 
 .brand {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .nav-links {
   display: flex;
   gap: 1rem;
-  color: var(--muted);
   align-items: center;
   flex-wrap: wrap;
-}
-
-.lang-switcher {
-  display: flex;
-  gap: 0.35rem;
-  margin-left: 0.5rem;
-}
-
-.lang-btn {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: transparent;
-  color: var(--text);
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.lang-btn.active {
-  background: var(--accent);
-  color: #08131d;
-  border-color: var(--accent);
+  color: var(--muted);
 }
 
 .nav-links a:hover,
@@ -90,10 +68,10 @@ a {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.25fr 0.75fr;
   gap: 2rem;
   align-items: center;
-  min-height: calc(100vh - 88px);
+  min-height: calc(100vh - 90px);
 }
 
 .eyebrow {
@@ -112,14 +90,20 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  margin: 0.3rem 0 1rem;
+  font-size: clamp(2.1rem, 3.8vw, 3.6rem);
+  margin: 0.4rem 0 1rem;
 }
 
 .hero-copy p {
   color: var(--muted);
   font-size: 1.05rem;
-  max-width: 640px;
+  max-width: 680px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn {
@@ -137,7 +121,7 @@ h1 {
 
 .btn-primary {
   background: var(--accent);
-  color: #0d1722;
+  color: #05140c;
 }
 
 .btn-secondary {
@@ -150,9 +134,9 @@ h1 {
 .info-box,
 .card,
 .cta-box {
-  background: rgba(16, 37, 58, 0.86);
+  background: rgba(19, 38, 30, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
 }
 
@@ -209,8 +193,152 @@ h1 {
   margin-top: 2rem;
 }
 
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+}
+
+.highlight-box {
+  margin-top: 2rem;
+  padding: 1.8rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.16), rgba(255, 184, 77, 0.12));
+  border: 1px solid rgba(110, 231, 183, 0.2);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.highlight-box ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
 .card {
   padding: 1.4rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.product-card ul {
+  margin: 0.2rem 0 0;
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.product-tag {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0;
+}
+
+.featured {
+  border-color: rgba(110, 231, 183, 0.4);
+  box-shadow: 0 0 0 1px rgba(110, 231, 183, 0.12), 0 14px 38px rgba(0, 0, 0, 0.24);
+}
+
+.card-visual {
+  height: 120px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--surface-2), #29513a);
+}
+
+.card-visual.accent {
+  background: linear-gradient(135deg, #2f4b37, var(--accent-2));
+}
+
+.card-visual.dark {
+  background: linear-gradient(135deg, #0d1712, #204030);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.step {
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.quote-strip {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.8rem;
+  border-radius: 24px;
+  background: rgba(19, 38, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.floating-video-card {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: min(630px, calc(100% - 2rem));
+  max-width: 630px;
+  z-index: 1000;
+  padding: 0.7rem;
+  background: rgba(7, 17, 13, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(8px);
+}
+
+.floating-video-card video {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: #000;
+}
+
+.quote-badges {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.badge {
+  padding: 0.9rem 1rem;
+  border-radius: 999px;
+  background: rgba(110, 231, 183, 0.14);
+  border: 1px solid rgba(110, 231, 183, 0.22);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.offer-box {
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.15), rgba(255, 184, 77, 0.12));
+  border: 1px solid rgba(110, 231, 183, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .cta-section {
@@ -225,13 +353,13 @@ h1 {
   gap: 1.5rem;
   flex-wrap: wrap;
   text-align: left;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .cta-box > div {
   flex: 1 1 420px;
-  max-width: 640px;
+  max-width: 660px;
 }
 
 .cta-box .btn-secondary {
@@ -254,7 +382,12 @@ h1 {
 @media (max-width: 860px) {
   .hero-content,
   .section-grid,
-  .cards {
+  .cards,
+  .benefit-grid,
+  .steps,
+  .highlight-box,
+  .quote-strip,
+  .video-showcase {
     grid-template-columns: 1fr;
     display: grid;
   }
@@ -271,6 +404,7 @@ h1 {
     gap: 0.75rem;
   }
 
+  .hero-actions,
   .stats,
   .footer-content {
     grid-template-columns: 1fr;
