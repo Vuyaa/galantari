@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     videoContainer.addEventListener('click', (event) => {
-      if (videoContainer.classList.contains('collapsed')) {
+      if (videoContainer.classList.contains('collapsed') && !event.target.closest('video')) {
         toggleVideo();
       }
     });

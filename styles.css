@@ -372,8 +372,7 @@ h1 {
   width: 72px;
   min-height: 72px;
   max-width: 72px;
-  padding: 0.5rem;
-}
+  padding: 0.5rem;  cursor: pointer;}
 
 .floating-video-card.collapsed .floating-video-header {
   justify-content: center;
