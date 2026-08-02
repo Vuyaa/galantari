@@ -331,11 +331,17 @@ h1 {
 .video-toggle-btn {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text);
+  min-width: 32px;
+  min-height: 32px;
 }
 
 .video-toggle-btn:hover,
 .video-replay-btn:hover {
   background: rgba(110, 231, 183, 0.16);
+}
+
+.floating-video-card.collapsed .video-toggle-btn {
+  visibility: hidden;
 }
 
 .floating-video-body {
