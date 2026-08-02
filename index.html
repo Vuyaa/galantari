@@ -56,10 +56,19 @@
 
     <main>
       <div class="floating-video-card" aria-label="Video prikaz synCRO sustava">
-        <video controls playsinline preload="auto" autoplay muted loop poster="media/syncro-poster.svg">
-          <source src="media/syncro.mp4" type="video/mp4" />
-          Vaš preglednik ne podržava prikaz videa.
-        </video>
+        <div class="floating-video-header">
+          <span>synCRO video</span>
+          <button class="video-toggle-btn" type="button" aria-label="Minimiziraj video">−</button>
+        </div>
+        <div class="floating-video-body">
+          <video controls playsinline preload="auto" autoplay muted poster="media/syncro-poster.svg">
+            <source src="media/syncro.mp4" type="video/mp4" />
+            Vaš preglednik ne podržava prikaz videa.
+          </video>
+          <div class="video-actions">
+            <button class="video-replay-btn btn btn-secondary" type="button">Reproduciraj ponovno</button>
+          </div>
+        </div>
       </div>
 
       <section class="section" id="o-nama">

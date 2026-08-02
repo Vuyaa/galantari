@@ -306,6 +306,41 @@ h1 {
   border-radius: 18px;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
   backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.floating-video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.video-toggle-btn,
+.video-replay-btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 700;
+}
+
+.video-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.video-toggle-btn:hover,
+.video-replay-btn:hover {
+  background: rgba(110, 231, 183, 0.16);
+}
+
+.floating-video-body {
+  display: grid;
+  gap: 0.8rem;
 }
 
 .floating-video-card video {
@@ -313,6 +348,25 @@ h1 {
   width: 100%;
   border-radius: 12px;
   background: #000;
+}
+
+.video-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.floating-video-card.collapsed {
+  width: 260px;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.floating-video-card.collapsed .floating-video-body {
+  display: none;
+}
+
+.floating-video-card.collapsed .video-toggle-btn {
+  transform: rotate(90deg);
 }
 
 .quote-badges {

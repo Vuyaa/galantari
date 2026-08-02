@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  const videoContainer = document.querySelector('.floating-video-card');
   const video = document.querySelector('.floating-video-card video');
+  const toggleButton = document.querySelector('.video-toggle-btn');
+  const replayButton = document.querySelector('.video-replay-btn');
+
   if (video) {
+    video.loop = false;
+
     const tryPlay = () => {
       const playPromise = video.play();
 
@@ -28,5 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('focus', tryPlay, { once: true });
     document.addEventListener('pointerdown', tryPlay, { once: true });
     setTimeout(tryPlay, 800);
+  }
+
+  if (toggleButton && videoContainer) {
+    toggleButton.addEventListener('click', () => {
+      videoContainer.classList.toggle('collapsed');
+      toggleButton.setAttribute('aria-label', videoContainer.classList.contains('collapsed') ? 'Povećaj video' : 'Minimiziraj video');
+    });
+  }
+
+  if (replayButton && video) {
+    replayButton.addEventListener('click', () => {
+      video.currentTime = 0;
+      video.play();
+    });
   }
 });
