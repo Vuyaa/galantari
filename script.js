@@ -42,16 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleButton.setAttribute('aria-label', isCollapsed ? 'Povećaj video' : 'Minimiziraj video');
     };
 
+    const containerToggle = (event) => {
+      if (videoContainer.classList.contains('collapsed') && !event.target.closest('video')) {
+        event.preventDefault();
+        toggleVideo();
+      }
+    };
+
     toggleButton.addEventListener('click', (event) => {
       event.stopPropagation();
       toggleVideo();
     });
 
-    videoContainer.addEventListener('click', (event) => {
-      if (videoContainer.classList.contains('collapsed') && !event.target.closest('video')) {
-        toggleVideo();
-      }
-    });
+    videoContainer.addEventListener('click', containerToggle);
+    videoContainer.addEventListener('touchend', containerToggle);
+    videoContainer.addEventListener('pointerup', containerToggle);
   }
 
   if (replayButton && video) {
