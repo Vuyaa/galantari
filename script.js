@@ -42,7 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleButton.setAttribute('aria-label', isCollapsed ? 'Povećaj video' : 'Minimiziraj video');
     };
 
-    toggleButton.addEventListener('click', toggleVideo);
+    toggleButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleVideo();
+    });
+
     videoContainer.addEventListener('click', (event) => {
       if (videoContainer.classList.contains('collapsed')) {
         toggleVideo();
