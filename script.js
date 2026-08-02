@@ -57,13 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         event.stopPropagation();
       };
 
-      ['click', 'pointerdown', 'pointerup', 'touchstart', 'touchend'].forEach((eventName) => {
-        toggleButton.addEventListener(eventName, (event) => {
-          stopPropagation(event);
-          if (eventName === 'click' || eventName === 'pointerup' || eventName === 'touchend') {
-            toggleVideo();
-          }
-        });
+      ['pointerdown', 'touchstart', 'pointerup', 'touchend'].forEach((eventName) => {
+        toggleButton.addEventListener(eventName, stopPropagation);
+      });
+
+      toggleButton.addEventListener('click', (event) => {
+        stopPropagation(event);
+        toggleVideo();
       });
 
       videoContainer.addEventListener('click', containerToggle);
