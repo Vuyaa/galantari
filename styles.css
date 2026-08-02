@@ -356,9 +356,14 @@ h1 {
 }
 
 .floating-video-card.collapsed {
-  width: 260px;
-  height: auto;
+  width: 72px;
+  min-height: 72px;
+  max-width: 72px;
   padding: 0.5rem;
+}
+
+.floating-video-card.collapsed .floating-video-header {
+  justify-content: center;
 }
 
 .floating-video-card.collapsed .floating-video-body {
@@ -366,7 +371,7 @@ h1 {
 }
 
 .floating-video-card.collapsed .video-toggle-btn {
-  transform: rotate(90deg);
+  transform: rotate(0deg);
 }
 
 .quote-badges {

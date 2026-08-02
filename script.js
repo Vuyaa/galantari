@@ -38,8 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (toggleButton && videoContainer) {
     toggleButton.addEventListener('click', () => {
-      videoContainer.classList.toggle('collapsed');
-      toggleButton.setAttribute('aria-label', videoContainer.classList.contains('collapsed') ? 'Povećaj video' : 'Minimiziraj video');
+      const isCollapsed = videoContainer.classList.toggle('collapsed');
+      toggleButton.setAttribute('aria-label', isCollapsed ? 'Povećaj video' : 'Minimiziraj video');
+      toggleButton.textContent = isCollapsed ? '+' : '−';
     });
   }
 
