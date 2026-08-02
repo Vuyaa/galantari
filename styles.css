@@ -350,7 +350,12 @@ h1 {
 }
 
 .floating-video-card.collapsed .video-toggle-btn {
-  visibility: hidden;
+  visibility: visible;
+  opacity: 1;
+}
+
+.floating-video-card.collapsed .floating-video-header {
+  justify-content: center;
 }
 
 .floating-video-body {

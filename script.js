@@ -37,34 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (toggleButton && videoContainer) {
-    const toggleVideo = () => {
-      const isCollapsed = videoContainer.classList.toggle('collapsed');
-      toggleButton.setAttribute('aria-label', isCollapsed ? 'Povećaj video' : 'Minimiziraj video');
-    };
+      const toggleVideo = () => {
+        const isCollapsed = videoContainer.classList.toggle('collapsed');
+        toggleButton.setAttribute('aria-label', isCollapsed ? 'Povećaj video' : 'Minimiziraj video');
+      };
 
-    const containerToggle = (event) => {
-      if (videoContainer.classList.contains('collapsed') && !event.target.closest('video')) {
-        event.preventDefault();
-        toggleVideo();
-      }
-    };
+      const containerToggle = (event) => {
+        if (
+          videoContainer.classList.contains('collapsed') &&
+          !event.target.closest('video') &&
+          !event.target.closest('.video-toggle-btn')
+        ) {
+          event.preventDefault();
+          toggleVideo();
+        }
+      };
 
-    const stopPropagation = (event) => {
-      event.stopPropagation();
-    };
+      const stopPropagation = (event) => {
+        event.stopPropagation();
+      };
 
-    toggleButton.addEventListener('click', (event) => {
-      stopPropagation(event);
-      toggleVideo();
-    });
-    toggleButton.addEventListener('pointerup', stopPropagation);
-    toggleButton.addEventListener('touchend', stopPropagation);
+      ['click', 'pointerdown', 'pointerup', 'touchstart', 'touchend'].forEach((eventName) => {
+        toggleButton.addEventListener(eventName, (event) => {
+          stopPropagation(event);
+          if (eventName === 'click' || eventName === 'pointerup' || eventName === 'touchend') {
+            toggleVideo();
+          }
+        });
+      });
 
-    ['click', 'pointerup', 'touchend'].forEach((eventName) => {
-      videoContainer.addEventListener(eventName, containerToggle);
-    });
-  }
-
+      videoContainer.addEventListener('click', containerToggle);
+    }
   if (replayButton && video) {
     replayButton.addEventListener('click', () => {
       video.currentTime = 0;
