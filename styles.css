@@ -331,8 +331,15 @@ h1 {
 .video-toggle-btn {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text);
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 42px;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-toggle-btn svg {
+  display: block;
 }
 
 .video-toggle-btn:hover,
