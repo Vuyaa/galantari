@@ -546,11 +546,46 @@ h1 {
 #chat-body {
   padding: 1rem;
   color: var(--muted);
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 #chat-body p {
   margin: 0;
   font-size: 0.95rem;
+}
+
+.chat-msg {
+  padding: 0.6rem 0.8rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 88%;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chat-msg.bot {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.chat-msg.user {
+  background: linear-gradient(135deg, var(--accent), #8ef2ca);
+  color: #05140c;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-msg.typing {
+  font-style: italic;
+  opacity: 0.7;
 }
 
 #chat-input-row {

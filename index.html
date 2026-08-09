@@ -308,15 +308,67 @@
       </div>
       <button id="chat-toggle" type="button" aria-label="Otvori chat">💬</button>
     </div>
-    <script>
+<script>
       const chatWidget = document.getElementById('chat-widget');
       const chatToggle = document.getElementById('chat-toggle');
       const chatPanel = document.getElementById('chat-panel');
       const chatClose = document.getElementById('chat-close');
+      const chatBody = document.getElementById('chat-body');
+      const chatInput = document.getElementById('chat-input');
+      const chatSend = document.getElementById('chat-send');
+
+      const botKnowledge = [
+        { keys: ['cijen', 'cena', 'koliko', 'košta', 'kosta', 'euro', 'pric'], answer: 'Cijene s montažom kreću se od cca 500 €, ovisno o vrsti sudopera koji imate i koliko se treba prepravljati da bi se mogao bez problema ugraditi synCRO.' },
+        { keys: ['siguran', 'sigurn', 'prst', 'opas', 'ostric', 'centrifug', 'membran'], answer: 'Potpuno je siguran za prste jer ne koristi oštrice, već koristi centrifugalnu silu kojom izbacuje hranu kroz male membrane u stjenkama synCRO usitnjivača.' },
+        { keys: ['struj', 'kabl', 'elektri', 'prekida', 'zračni', 'zracni', 'udar', 'napon'], answer: 'Ne koristi električne kablove, nego takozvani zračni prekidač, pa nema rizika od strujnog udara.' },
+        { keys: ['gara', 'garancija', 'jamstvo', 'godin'], answer: 'Garancija je 1+1 godina, dakle ukupno 2 godine zaštite.' },
+        { keys: ['kontakt', 'telefon', 'email', 'mail', 'whatsapp', 'gdje', 'adresa', 'split'], answer: 'Možete nas kontaktirati na syncro@galantari.hr, +385 91 9208 273 ili putem WhatsAppa. Nalazimo se u Splitu, Hercegovačka 26.' },
+        { keys: ['ugrad', 'monta', 'instal', 'kako izgleda suradnja'], answer: 'Suradnja izgleda ovako: 1. Savjetovanje - odaberemo prikladno rješenje, 2. Montaža - profesionalno postavljamo sustav, 3. Podrška - ostajemo dostupni za održavanje.' },
+        { keys: ['pozdrav', 'bok', 'zdravo', 'hi', 'hello', 'dobar dan'], answer: 'Pozdrav! Ja sam Galantari pomoćnik. Kako vam mogu pomoći? Pitajte me o cijenama, sigurnosti, ugradnji, garanciji ili kontaktu.' }
+      ];
+
+      const fallback = 'Hvala na pitanju! Za detaljnije informacije kontaktirajte nas na syncro@galantari.hr ili +385 91 9208 273.';
+
+      function addMsg(text, type) {
+        const el = document.createElement('div');
+        el.className = 'chat-msg ' + type;
+        el.textContent = text;
+        chatBody.appendChild(el);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        return el;
+      }
+
+      function getBotReply(userText) {
+        const lower = userText.toLowerCase();
+        for (const item of botKnowledge) {
+          if (item.keys.some((k) => lower.includes(k))) {
+            return item.answer;
+          }
+        }
+        return fallback;
+      }
+
+      function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        addMsg(text, 'user');
+        chatInput.value = '';
+        const typing = addMsg('...', 'bot typing');
+        setTimeout(() => {
+          typing.remove();
+          addMsg(getBotReply(text), 'bot');
+        }, 700);
+      }
+
+      chatSend?.addEventListener('click', handleSend);
+      chatInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSend();
+      });
 
       chatToggle?.addEventListener('click', () => {
         const isOpen = chatWidget.classList.toggle('open');
         chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        if (isOpen) chatInput?.focus();
       });
 
       chatClose?.addEventListener('click', () => {
