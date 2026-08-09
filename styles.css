@@ -476,10 +476,10 @@ h1 {
   }
 }
 
-/* --- PLUTAJUĆI CHAT WIDGET (LIJEVO) --- */
+/* --- PLUTAJUĆI CHAT WIDGET (LIJEVO, STICK) --- */
 #chat-widget {
   position: fixed;
-  left: 1rem;
+  left: 0;
   bottom: 1rem;
   z-index: 1000;
   display: flex;
@@ -489,7 +489,7 @@ h1 {
 
 #chat-toggle {
   border: 0;
-  border-radius: 999px;
+  border-radius: 0 999px 999px 0;
   width: 56px;
   height: 56px;
   font-size: 1.35rem;
@@ -634,8 +634,8 @@ h1 {
   }
 
 /* --- CHAT: lijevo, responzivno, bez preklapanja s videom na mobitelu --- */
-  #chat-widget {
-    left: 0.75rem;
+#chat-widget {
+    left: 0;
     bottom: 0.75rem;
     width: auto;
     max-width: calc(100vw - 1.5rem);
@@ -649,6 +649,7 @@ h1 {
     width: 52px;
     height: 52px;
     order: 2;
+    border-radius: 0 999px 999px 0;
   }
 
   /* Panel se otvara PREMA GORE iznad chat ikone (ne prelazi preko videa desno) */
