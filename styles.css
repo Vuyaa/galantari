@@ -498,6 +498,7 @@ h1 {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  order: 1;
 }
 
 #chat-toggle:hover {
@@ -517,6 +518,8 @@ h1 {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
+  order: 2;
+  margin-left: 0.5rem;
 }
 
 #chat-widget.open #chat-panel {
