@@ -633,27 +633,32 @@ h1 {
     display: grid;
   }
 
-  /* --- CHAT: skroz lijevo i responzivno na mobitelu --- */
+/* --- CHAT: lijevo, responzivno, bez preklapanja s videom na mobitelu --- */
   #chat-widget {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 0.75rem;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0;
     gap: 0.6rem;
-    align-items: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   #chat-toggle {
     width: 52px;
     height: 52px;
-    margin-left: 0.25rem;
+    order: 2;
   }
 
+  /* Panel se otvara PREMA GORE iznad chat ikone (ne prelazi preko videa desno) */
   #chat-panel {
-    width: calc(100vw - 2rem);
-    max-width: calc(100vw - 2rem);
+    order: 1;
+    width: min(340px, calc(100vw - 1.5rem));
+    max-width: calc(100vw - 1.5rem);
     transform-origin: bottom left;
     transform: scale(0.94);
+    margin-bottom: 0.25rem;
   }
 
   #chat-widget.open #chat-panel {
@@ -661,11 +666,27 @@ h1 {
   }
 
   #chat-body {
-    max-height: 55vh;
+    max-height: 45vh;
   }
 
   .chat-msg {
     max-width: 92%;
+  }
+
+/* Video: manji na mobitelu, držimo ga DESNO da ne prelazi preko chat ikone lijevo */
+  .floating-video-card {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    width: min(200px, 55vw);
+    max-width: 200px;
+    padding: 0.5rem;
+  }
+
+  .floating-video-card.collapsed {
+    width: 56px;
+    min-height: 56px;
+    max-width: 56px;
+    padding: 0.4rem;
   }
 }
 
