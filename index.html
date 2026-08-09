@@ -293,7 +293,22 @@
       </div>
     </footer>
     <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-    <script src="https://mediafiles.botpress.cloud/8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0/webchat/config.js" defer></script>
+    <script>
+      window.botpressWebChat.init({
+        composerPlaceholder: "Napiši poruku",
+        botConversationDescription: "Pomoćnik za Galantari",
+        botId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
+        hostUrl: "https://cdn.botpress.cloud/webchat/v1",
+        messagingUrl: "https://messaging.botpress.cloud",
+        clientId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
+        webhookId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
+        lazySocket: true,
+        disableAnimations: false,
+        themeName: "prism",
+        stylesheet: "https://cdn.botpress.cloud/webchat/v1/examples/themes/prism.css",
+        frontMessage: "Pozdrav! Kako mogu pomoći?"
+      });
+    </script>
   </body>
 </html>
 
