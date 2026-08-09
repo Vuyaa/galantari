@@ -292,27 +292,38 @@
         </div>
       </div>
     </footer>
-    <button id="chat-toggle" type="button" aria-label="Otvori chat">💬</button>
-    <div id="chat-panel" hidden>
-      <div id="chat-header">
-        <strong>Galantari pomoćnik</strong>
-        <button id="chat-close" type="button" aria-label="Zatvori chat">✕</button>
-      </div>
-      <div id="chat-body">
-        <p>Pozdrav! Kako mogu pomoći?</p>
+    <div id="chat-widget" class="collapsed">
+      <button id="chat-toggle" type="button" aria-label="Otvori chat">
+        <span>💬</span>
+      </button>
+      <div id="chat-panel" aria-hidden="true">
+        <div id="chat-header">
+          <strong>Galantari pomoćnik</strong>
+          <button id="chat-close" type="button" aria-label="Zatvori chat">✕</button>
+        </div>
+        <div id="chat-body">
+          <p>Pozdrav! Kako mogu pomoći?</p>
+        </div>
+        <div id="chat-input-row">
+          <input id="chat-input" type="text" placeholder="Napiši poruku..." />
+          <button id="chat-send" type="button">➤</button>
+        </div>
       </div>
     </div>
     <script>
+      const chatWidget = document.getElementById('chat-widget');
       const chatToggle = document.getElementById('chat-toggle');
       const chatPanel = document.getElementById('chat-panel');
       const chatClose = document.getElementById('chat-close');
 
       chatToggle?.addEventListener('click', () => {
-        chatPanel.hidden = !chatPanel.hidden;
+        const isOpen = chatWidget.classList.toggle('open');
+        chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
       });
 
       chatClose?.addEventListener('click', () => {
-        chatPanel.hidden = true;
+        chatWidget.classList.remove('open');
+        chatPanel.setAttribute('aria-hidden', 'true');
       });
     </script>
   </body>
