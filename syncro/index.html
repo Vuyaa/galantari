@@ -315,14 +315,19 @@
       const chatInput = document.getElementById('chat-input');
       const chatSend = document.getElementById('chat-send');
 
-      const botKnowledge = [
-        { keys: ['cijen', 'cena', 'koliko', 'košta', 'kosta', 'euro', 'pric'], answer: 'Cijene s montažom kreću se od cca 500 €, ovisno o vrsti sudopera koji imate i koliko se treba prepravljati da bi se mogao bez problema ugraditi synCRO.' },
-        { keys: ['siguran', 'sigurn', 'prst', 'opas', 'ostric', 'centrifug', 'membran'], answer: 'Potpuno je siguran za prste jer ne koristi oštrice, već koristi centrifugalnu silu kojom izbacuje hranu kroz male membrane u stjenkama synCRO usitnjivača.' },
-        { keys: ['struj', 'kabl', 'elektri', 'prekida', 'zračni', 'zracni', 'udar', 'napon'], answer: 'Ne koristi električne kablove, nego takozvani zračni prekidač, pa nema rizika od strujnog udara.' },
-        { keys: ['gara', 'garancija', 'jamstvo', 'godin'], answer: 'Garancija je 1+1 godina, dakle ukupno 2 godine zaštite.' },
-        { keys: ['kontakt', 'telefon', 'email', 'mail', 'whatsapp', 'gdje', 'adresa', 'split'], answer: 'Možete nas kontaktirati na syncro@galantari.hr, +385 91 9208 273 ili putem WhatsAppa. Nalazimo se u Splitu, Hercegovačka 26.' },
-        { keys: ['ugrad', 'monta', 'instal', 'kako izgleda suradnja'], answer: 'Suradnja izgleda ovako: 1. Savjetovanje - odaberemo prikladno rješenje, 2. Montaža - profesionalno postavljamo sustav, 3. Podrška - ostajemo dostupni za održavanje.' },
-        { keys: ['pozdrav', 'bok', 'zdravo', 'hi', 'hello', 'dobar dan'], answer: 'Pozdrav! Ja sam Galantari pomoćnik. Kako vam mogu pomoći? Pitajte me o cijenama, sigurnosti, ugradnji, garanciji ili kontaktu.' }
+const botKnowledge = [
+        { keys: ['pozdrav', 'bok', 'zdravo', 'dobar dan', 'hi', 'hello', 'pomoći', 'pomoci'], answer: 'Pozdrav! Ja sam vaš Galantari asistent. Tu sam da vam pomognem otkriti kako synCRO usitnjivač može vašu kuhinju učiniti čišćom, mirisnijom i praktičnijom! O čemu biste željeli saznati više?' },
+        { keys: ['cijen', 'cena', 'košta', 'kosta', 'euro', 'pric', 'uplata', 'plać', 'plac'], answer: 'Cijene s kompletnom profesionalnom montažom kreću se od cca 500 €, ovisno o vrsti sudopera i potrebnoj prilagodbi. To je dugoročna investicija u čistu kuhinju bez smrada i bez čestog iznošenja smeća. Za točnu procjenu, slobodno nam se javite!' },
+        { keys: ['sigurn', 'prst', 'djec', 'djece', 'ostric', 'nož', 'noz', 'centrifug', 'membran', 'opas'], answer: 'synCRO je 100% siguran za korištenje i za prste! Uređaj nema opasne oštrice ni noževe — umjesto toga koristi centrifugalnu silu koja potiskuje hranu kroz sigurne membrane. Bez straha ga mogu koristiti svi u kućanstvu.' },
+        { keys: ['struj', 'kabl', 'elektri', 'mokre', 'mokri', 'voda', 'prekida', 'zračni', 'zracni', 'udar', 'pali', 'kako se pali'], answer: 'Potpuno ste sigurni čak i ako gumb pritišćete mokrim rukama! synCRO koristi pametni zračni prekidač (pneumatski pritisak), tako da strujnog kabela nema blizu vode i nema nikakvog rizika od strujnog udara.' },
+        { keys: ['gara', 'jamst', 'pokvar', 'trajn', 'godin'], answer: 'Uz synCRO dobivate ukupno 2 godine mira (1+1 godina garancije). Naši sustavi su iznimno pouzdani, dugotrajni i napravljeni za svakodnevni rad bez komplikacija.' },
+        { keys: ['ugrad', 'monta', 'instal', 'postupak', 'traje', 'kako izgleda'], answer: 'Sve rješavamo po principu "ključ u ruke": 1. Savjetovanje (odaberemo idealan model), 2. Profesionalna montaža (brzo i bez nereda) i 3. Podrška i održavanje. Vi samo uživate u novom komforu!' },
+        { keys: ['prednost', 'zašto', 'zasto', 'kupio', 'dobivam', 'kanta', 'kante', 'benefit'], answer: 'Uz synCRO zaboravite na neugodne mirise iz kante, nakupljanje bakterija i osice/muhe ljeti. Gulite povrće direktno u sudoper, a ostatke s tanjura prebacite u odvod – brzo, higijenski i super jednostavno!' },
+        { keys: ['mljeti', 'usitnjav', 'kosti', 'ljusk', 'što se smije', 'sto se smije'], answer: 'synCRO bez problema usitnjava voće, povrće, ljuske jaja, manje kosti peradi i ribe, te sve meke ostatke hrane. Ne preporučuje se ubacivanje plastike, stakla, velikih goveđih kostiju i izrazito vlaknastih materijala.' },
+        { keys: ['začep', 'zacep', 'cijev', 'odvod', 'stopa', 'štop'], answer: 'Bez brige, synCRO usitnjava hranu na mikročestice koje tekućina lako ispire, čime se zapravo smanjuje rizik od začepljenja cijevi u usporedbi s klasičnim usipavanjem masti i komada hrane u odvod.' },
+        { keys: ['buč', 'buc', 'glasno', 'zvuk', 'tih', 'buka'], answer: 'synCRO je vrhunski izoliran i radi iznimno tiho. Zvuk usitnjavanja traje svega nekoliko sekundi, tako da ne ometa ukućane ni u otvorenim kuhinjama.' },
+        { keys: ['sudoper', 'kompatib', 'odgovara', 'inox', 'granit', 'standard'], answer: 'synCRO se može ugraditi na većinu standardnih sudopera (i inox i granitne). Prilikom montaže po potrebi radimo manje prilagodbe kako bi sve sjedalo savršeno.' },
+        { keys: ['kontakt', 'telefon', 'broj', 'email', 'mail', 'whatsapp', 'gdje', 'adresa', 'split', 'nalazit'], answer: 'Stojimo vam na raspolaganju! Kontaktirajte nas na syncro@galantari.hr, pozivom ili WhatsAppom na +385 91 9208 273. Nalazimo se u Splitu (Hercegovačka 26), a terenski radimo po dogovoru.' }
       ];
 
       const fallback = 'Hvala na pitanju! Za detaljnije informacije kontaktirajte nas na syncro@galantari.hr ili +385 91 9208 273.';
