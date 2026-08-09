@@ -290,15 +290,14 @@
         </div>
       </div>
     </footer>
-<!-- PLUTAJUĆI CHAT WIDGET (LIJEVO) -->
-    <div id="chat-widget">
+<div id="chat-widget">
       <div id="chat-panel" aria-hidden="true">
         <div id="chat-header">
-          <span>Galantari pomoćnik</span>
+          <strong>Galantari pomoćnik</strong>
           <button id="chat-close" type="button" aria-label="Zatvori chat">✕</button>
         </div>
         <div id="chat-body">
-          <p>Pozdrav! Kako vam mogu pomoći?</p>
+          <p>Pozdrav! Kako mogu pomoći?</p>
         </div>
         <div id="chat-input-row">
           <input id="chat-input" type="text" placeholder="Napiši poruku..." />
@@ -307,5 +306,21 @@
       </div>
       <button id="chat-toggle" type="button" aria-label="Otvori chat">💬</button>
     </div>
+    <script>
+      const chatWidget = document.getElementById('chat-widget');
+      const chatToggle = document.getElementById('chat-toggle');
+      const chatPanel = document.getElementById('chat-panel');
+      const chatClose = document.getElementById('chat-close');
+
+      chatToggle?.addEventListener('click', () => {
+        const isOpen = chatWidget.classList.toggle('open');
+        chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      });
+
+      chatClose?.addEventListener('click', () => {
+        chatWidget.classList.remove('open');
+        chatPanel.setAttribute('aria-hidden', 'true');
+      });
+    </script>
   </body>
 </html>
