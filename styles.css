@@ -677,13 +677,16 @@ h1 {
     max-width: 92%;
   }
 
-/* Video: manji na mobitelu, držimo ga DESNO da ne prelazi preko chat ikone lijevo */
+/* Video: manji na mobitelu, držimo ga DESNO, poravnat na dnu u razini
+   s lijevim chat buttonom (bottom: 0.75rem). Viši z-index (1001) osigurava
+   da su pauza, glasnoća i replay uvijek klikabilni. */
   .floating-video-card {
     right: 0.5rem;
-    bottom: 0.5rem;
-    width: min(200px, 55vw);
-    max-width: 200px;
+    bottom: 0.75rem;
+    width: min(250px, 62vw);
+    max-width: 250px;
     padding: 0.5rem;
+    z-index: 1001;
   }
 
   .floating-video-card.collapsed {
