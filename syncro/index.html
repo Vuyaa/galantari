@@ -290,21 +290,27 @@
         </div>
       </div>
     </footer>
-    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <button id="chat-toggle" type="button" aria-label="Otvori chat">💬</button>
+    <div id="chat-panel" hidden>
+      <div id="chat-header">
+        <strong>Galantari pomoćnik</strong>
+        <button id="chat-close" type="button" aria-label="Zatvori chat">✕</button>
+      </div>
+      <div id="chat-body">
+        <p>Pozdrav! Kako mogu pomoći?</p>
+      </div>
+    </div>
     <script>
-      window.botpressWebChat.init({
-        composerPlaceholder: "Napiši poruku",
-        botConversationDescription: "Pomoćnik za Galantari",
-        botId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
-        hostUrl: "https://cdn.botpress.cloud/webchat/v1",
-        messagingUrl: "https://messaging.botpress.cloud",
-        clientId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
-        webhookId: "8c1824f3-8fe4-4aaf-bd3a-7f3a8b8507c0",
-        lazySocket: true,
-        disableAnimations: false,
-        themeName: "prism",
-        stylesheet: "https://cdn.botpress.cloud/webchat/v1/examples/themes/prism.css",
-        frontMessage: "Pozdrav! Kako mogu pomoći?"
+      const chatToggle = document.getElementById('chat-toggle');
+      const chatPanel = document.getElementById('chat-panel');
+      const chatClose = document.getElementById('chat-close');
+
+      chatToggle?.addEventListener('click', () => {
+        chatPanel.hidden = !chatPanel.hidden;
+      });
+
+      chatClose?.addEventListener('click', () => {
+        chatPanel.hidden = true;
       });
     </script>
   </body>
