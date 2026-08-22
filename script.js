@@ -74,5 +74,33 @@ document.addEventListener('DOMContentLoaded', () => {
       video.play();
     });
   }
+
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const languageBlocks = document.querySelectorAll('.lang-block');
+
+  if (langButtons.length && languageBlocks.length) {
+    const setLanguage = (lang) => {
+      document.documentElement.lang = lang;
+      langButtons.forEach((button) => {
+        const isActive = button.dataset.lang === lang;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+
+      languageBlocks.forEach((block) => {
+        const shouldShow = block.dataset.lang === lang;
+        block.classList.toggle('hidden', !shouldShow);
+      });
+    };
+
+    const defaultLang = document.body.dataset.defaultLang || 'en';
+    setLanguage(defaultLang);
+
+    langButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+  }
 });
 
