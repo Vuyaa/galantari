@@ -77,10 +77,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const langButtons = document.querySelectorAll('.lang-btn');
   const languageBlocks = document.querySelectorAll('.lang-block');
+  const navTranslations = {
+    en: {
+      'nav.home': 'Home',
+      'nav.about': 'About',
+      'nav.benefits': 'Benefits',
+      'nav.solutions': 'Solutions',
+      'nav.contact': 'Contact',
+      'nav.syncro': 'Syncro'
+    },
+    hr: {
+      'nav.home': 'Početna',
+      'nav.about': 'O nama',
+      'nav.benefits': 'Prednosti',
+      'nav.solutions': 'Rješenja',
+      'nav.contact': 'Kontakt',
+      'nav.syncro': 'Syncro'
+    }
+  };
+
+  const updateNavLanguage = (lang) => {
+    document.querySelectorAll('[data-i18n]').forEach((link) => {
+      const key = link.dataset.i18n;
+      const translation = navTranslations[lang]?.[key];
+
+      if (translation) {
+        link.textContent = translation;
+      }
+    });
+  };
 
   if (langButtons.length && languageBlocks.length) {
     const setLanguage = (lang) => {
       document.documentElement.lang = lang;
+      updateNavLanguage(lang);
+
       langButtons.forEach((button) => {
         const isActive = button.dataset.lang === lang;
         button.classList.toggle('active', isActive);
@@ -93,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    const defaultLang = document.body.dataset.defaultLang || 'en';
+    const defaultLang = document.documentElement.lang || document.body.dataset.defaultLang || 'en';
     setLanguage(defaultLang);
 
     langButtons.forEach((button) => {

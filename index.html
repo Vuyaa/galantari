@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,11 +19,11 @@
   <body data-default-lang="en">
     <div class="topbar">
       <nav class="landing-nav" aria-label="Main navigation">
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#contact">Contact</a>
+        <a href="#" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#benefits" data-i18n="nav.benefits">Benefits</a>
+        <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="lang-switcher" aria-label="Language switcher">
@@ -91,7 +91,76 @@
     </div>
 
     <main class="simple-main">
-      <section id="nautica" class="option-panel">
+      <section id="about" class="option-panel">
+        <div class="container panel-box">
+          <div class="lang-block" data-lang="en">
+            <p class="eyebrow">About</p>
+            <h2>Practical support for marinas, kitchens, and businesses.</h2>
+            <p>
+              We help clients with reliable nautical services and efficient equipment
+              solutions built for daily use, comfort, and smooth operations.
+            </p>
+            <a href="mailto:syncro@galantari.hr" class="btn btn-secondary">Contact</a>
+          </div>
+          <div class="lang-block hidden" data-lang="hr">
+            <p class="eyebrow">O nama</p>
+            <h2>Praktična podrška za marine, kuhinje i poslovne prostore.</h2>
+            <p>
+              Pomažemo klijentima s pouzdanim nautičkim uslugama i učinkovitom opremom
+              dizajniranim za svakodnevnu uporabu, udobnost i nesmetan rad.
+            </p>
+            <a href="mailto:syncro@galantari.hr" class="btn btn-secondary">Kontaktiraj</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits" class="option-panel alt">
+        <div class="container panel-box">
+          <div class="lang-block" data-lang="en">
+            <p class="eyebrow">Benefits</p>
+            <h2>Fast response, clean operation, and dependable service.</h2>
+            <p>
+              From yacht provision to kitchen waste disposal, we focus on timing,
+              professionalism, and practical solutions that save effort and reduce stress.
+            </p>
+          </div>
+          <div class="lang-block hidden" data-lang="hr">
+            <p class="eyebrow">Prednosti</p>
+            <h2>Brz odgovor, uredan rad i pouzdana usluga.</h2>
+            <p>
+              Od opskrbe jahti do odlaganja hrane u kuhinji, fokusiramo se na rokovе,
+              profesionalnost i praktična rješenja koja štede vrijeme i smanjuju stres.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="solutions" class="option-panel">
+        <div class="container panel-box">
+          <div class="lang-block" data-lang="en">
+            <p class="eyebrow">Solutions</p>
+            <h2>Choose the service that matches your space.</h2>
+            <p>
+              Our approach covers yacht provisioning, transport support, and reliable food
+              waste disposal systems for homes, businesses, and marina facilities.
+            </p>
+            <a href="yacht-provisioning.html" class="btn btn-secondary">Learn more</a>
+            <a href="syncro/index.html" class="btn btn-primary">View</a>
+          </div>
+          <div class="lang-block hidden" data-lang="hr">
+            <p class="eyebrow">Rješenja</p>
+            <h2>Odaberite uslugu koja odgovara vašem prostoru.</h2>
+            <p>
+              Naš pristup obuhvaća opskrbu jahti, podršku u prijevozu i pouzdane sustave
+              za mljevenje hrane za kuće, poslovne prostore i marine.
+            </p>
+            <a href="yacht-provisioning.html" class="btn btn-secondary">Saznajte više</a>
+            <a href="syncro/index.html" class="btn btn-primary">Pogledaj</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="nautica" class="option-panel alt">
         <div class="container panel-box">
           <div class="lang-block" data-lang="en">
             <p class="eyebrow">Nautical</p>
@@ -114,7 +183,7 @@
         </div>
       </section>
 
-      <section id="syncro" class="option-panel alt">
+      <section id="syncro" class="option-panel">
         <div class="container panel-box">
           <div class="lang-block" data-lang="en">
             <p class="eyebrow">Syncro</p>
@@ -133,6 +202,29 @@
               prostore i marine, s naglaskom na higijenu i jednostavnu uporabu.
             </p>
             <a href="syncro/index.html" class="btn btn-primary">Pogledaj</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="option-panel alt">
+        <div class="container panel-box">
+          <div class="lang-block" data-lang="en">
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s talk about your project.</h2>
+            <p>
+              Need a quote, a quick answer, or help choosing the right solution? Contact us
+              and we’ll get back to you with the best option for your needs.
+            </p>
+            <a href="mailto:syncro@galantari.hr?subject=Quote%20request&body=Hello%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20a%20solution%20for%20my%20space.%0A%0APlease%20send%20me%20more%20details.%0A%0AThank%20you." class="btn btn-primary">Email us</a>
+          </div>
+          <div class="lang-block hidden" data-lang="hr">
+            <p class="eyebrow">Kontakt</p>
+            <h2>Razgovarajmo o vašem projektu.</h2>
+            <p>
+              Trebate ponudu, brzi odgovor ili savjet za pravilno rješenje? Javite nam se,
+              a mi ćemo vam preporučiti najprikladniju opciju.
+            </p>
+            <a href="mailto:syncro@galantari.hr?subject=Zahtjev%20za%20ponudu&body=Pozdrav%2C%20%C5%BEelio%2F-bih%20zatra%C5%BEiti%20ponudu%20za%20rje%C5%A1enje%20za%20moj%20prostor.%0A%0AMo%C5%BEete%20li%20mi%20poslati%20vi%C5%A1e%20informacija%3F%0A%0AHvala." class="btn btn-primary">Pošaljite mail</a>
           </div>
         </div>
       </section>
